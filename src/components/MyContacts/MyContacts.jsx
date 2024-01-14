@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PhonebookForm from 'components/MyContacts/PhonebookForm/PhonebookForm';
 import ContactsList from 'components/MyContacts/ContactsList/ContactsList';
-import css from './my-contacts.module.css';
+// import css from './my-contacts.module.css';
 import { nanoid } from 'nanoid';
 
 class MyContacts extends Component {

@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form {
+  width: 300px;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.formGroup label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.formGroup input {
+  width: 115px;
+}
+
+.button {
+  width: 123px;
+  margin: auto;
+}

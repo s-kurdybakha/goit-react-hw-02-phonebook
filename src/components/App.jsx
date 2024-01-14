@@ -1,14 +1,7 @@
 import { Component } from 'react';
-import PhonebookForm from './PhonebookForm/PhonebookForm';
-import ContactsList from './ContactsList/ContactsList';
+import MyContacts from './MyContacts/MyContacts';
 
 export class App extends Component {
-  state = {
-    contacts: [],
-    name: '',
-    number: '',
-  };
-
   render() {
     return (
       <div
@@ -21,9 +14,8 @@ export class App extends Component {
       //   color: '#010101',
       // }}
       >
-        <PhonebookForm />
-        <ContactsList />
         {/* React homework template */}
+        <MyContacts />
       </div>
     );
   }

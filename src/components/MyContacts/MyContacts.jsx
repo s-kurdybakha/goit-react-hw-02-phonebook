@@ -68,6 +68,10 @@ class MyContacts extends Component {
   getFilteredContacts = () => {
     const { filter, contacts } = this.state;
 
+    if (!filter) {
+      return contacts;
+    }
+
     const normalizedFilter = filter.toLocaleLowerCase();
 
     const filteredContacts = contacts.filter(({ name, number }) => {

@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import PhonebookForm from 'components/MyContacts/PhonebookForm/PhonebookForm';
 import ContactsList from 'components/MyContacts/ContactsList/ContactsList';
+import css from './my-contacts.module.css';
 // import css from './my-contacts.module.css';
 import { nanoid } from 'nanoid';
 
@@ -12,6 +13,7 @@ class MyContacts extends Component {
       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
+    filter: '',
   };
 
   isDublacate({ name, number }) {
@@ -57,13 +59,40 @@ class MyContacts extends Component {
     });
   };
 
+  changeFilter = ({ target }) => {
+    this.setState({
+      filter: target.value,
+    });
+  };
+
+  getFilteredContacts = () => {
+    const { filter, contacts } = this.state;
+
+    const normalizedFilter = filter.toLocaleLowerCase();
+
+    const filteredContacts = contacts.filter(({ name, number }) => {
+      const normalizedName = name.toLocaleLowerCase();
+      const normalizedNumber = number.toLocaleLowerCase();
+      return (
+        normalizedName.includes(normalizedFilter) ||
+        normalizedNumber.includes(normalizedFilter)
+      );
+    });
+    return filteredContacts;
+  };
+
   render() {
-    const { contacts } = this.state;
-    const { addContact, deleteContact } = this;
+    const { addContact, deleteContact, changeFilter } = this;
+    const contacts = this.getFilteredContacts();
     return (
       <div>
+        <h1 className={css.title}>Phonebook</h1>
         <PhonebookForm onSubmit={addContact} />
-        <ContactsList items={contacts} deleteContact={deleteContact} />
+        <div className={css.listWrapper}>
+          <h2>Contacts</h2>
+          <input onChange={changeFilter} name="filter" placeholder="Search" />
+          <ContactsList items={contacts} deleteContact={deleteContact} />
+        </div>
       </div>
     );
   }

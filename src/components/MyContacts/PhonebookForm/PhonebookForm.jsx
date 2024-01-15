@@ -39,7 +39,6 @@ class PhonebookForm extends Component {
     const { name, number } = this.state;
     return (
       <div className={css.wrapper}>
-        <h1 className={css.title}>Phonebook</h1>
         <form onSubmit={HandleSubmit} className={css.form}>
           <div className={css.formGroup}>
             <label htmlFor={contactNameId}>Name</label>
